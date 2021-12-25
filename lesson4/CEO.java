@@ -1,14 +1,9 @@
-package lesson4;
+package study.lesson4;
 
-public class CEO {
-    private double salary;
-
-    public void setSalary(double salary){
-        this.salary = salary;
-    }
-
+public class CEO extends Employee {
+    @Override
     public double getSalary() {
-        double yearSalary = salary * 12;
-        return yearSalary;
+        // TODO Auto-generated method stub
+        return 100000;
     }
 }

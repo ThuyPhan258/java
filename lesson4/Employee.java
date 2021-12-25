@@ -1,4 +1,4 @@
-package lesson4;
+package study.lesson4;
 
 public class Employee {
     private double salary;
@@ -8,7 +8,9 @@ public class Employee {
     }
     
     public double getSalary() {
-        double yearSalary = salary * 12;
-        return yearSalary;
+        return salary;
+    }
+    public double getSupportMoney(){
+        return 0.0;
     }
 }

@@ -3,8 +3,8 @@ package study.lesson6;
 import java.security.SecureRandom;
 
 public class Horse extends Animal{
-    public Horse(String name, double speed){
-        super(name, speed);
+    public Horse(String name, double speed, boolean flyable){
+        super(name, speed, flyable);
     }
     @Override
     public double getSpeed() {

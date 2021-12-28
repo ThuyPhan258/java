@@ -3,12 +3,8 @@ package study.lesson6;
 import java.security.SecureRandom;
 
 public class Dog extends Animal{
-    public Dog(String name, double speed, boolean flyable){
-        super(name, speed, flyable);
-    }
-    @Override
-    public double getSpeed() {
-        // TODO Auto-generated method stub
-        return new SecureRandom().nextInt(60);
+    private static final int MAX_SPEED = 60;
+    public Dog(){
+        super(new SecureRandom().nextInt(MAX_SPEED));
     }
 }

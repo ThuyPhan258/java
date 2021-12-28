@@ -6,24 +6,29 @@ import java.util.List;
 
 public class Racing {
     public static void main(String[] args) {
-        Horse horse = new Horse("Horse", new SecureRandom().nextInt(75), true);
-        Tiger tiger = new Tiger("Tiger", new SecureRandom().nextInt(100), false);
-        Dog dog = new Dog("Dog", new SecureRandom().nextInt(60), true);
+        Animal horse = new Horse();
+        Animal tiger = new Tiger();
+        Animal dog = new Dog();
         List<Animal> animalList = new ArrayList<>();
         animalList.add(horse);
         animalList.add(tiger);
         animalList.add(dog);
-        double maxSpeed = dog.getSpeed();
-        String win = null;
 
+        Animal win = null;
+
+        if(animalList.isEmpty())
+            System.out.println("There is no animals!");
         for(Animal animal: animalList){
-            if(maxSpeed < animal.getSpeed()){
-                maxSpeed = animal.getSpeed();
-                win = animal.getName();
+            if(win == null){
+                win = animal;
+            }
+            else {
+            if(animal.getSpeed() > win.getSpeed())
+                win = animal;
             }
         }
-        System.out.printf("Max speed racing: %f%n", maxSpeed);
-        System.out.printf("Winer is: %s%n", win);
+        System.out.printf("The winner is: " + win.getClass().getSimpleName()+", with speed: " + win.getSpeed());
+        // System.out.printf("Winer is: %s%n", win);
         
     }
 }

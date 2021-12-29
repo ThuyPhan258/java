@@ -5,19 +5,46 @@ import java.lang.module.ModuleDescriptor.Builder;
 public class Animal {
     // private final String name;
     private final int speed;
-    // private final boolean flyable;
+    private final boolean flyable;
 
-    // public Animal(Builder builder){
-    //     this.name = builder.name;
-    //     this.speed = builder.speed;
-    //     this.flyable = builder.flyable;
-    // }
+    public Animal(Builder builder){
+        this.speed = builder.speed;
+        this.flyable = builder.flyable;
+    }
+
+    protected int getSpeed() {
+        return this.speed; 
+    }
+
+    public boolean isFlyable() {
+        return flyable;
+    }
+    //Inner class
+    public static class Builder{
+        private int speed;
+        private boolean flyable;
+    
+        public Builder flyable(Boolean flyable){
+            this.flyable = flyable;
+            return this;
+        }
+
+        public Builder withSpeed(int speed){
+            this.speed = speed;
+            return null;
+        }
+
+        public Animal build(){
+            return new Animal(this);
+        }
+        
+    }
     // public Animal(){
 
     // }
-    public Animal(int speed){
-        this.speed = speed;
-    }
+    // public Animal(int speed){
+    //     this.speed = speed;
+    // }
 
     // public Animal(String name, double speed, boolean flyable) {
     //     this.name = name;
@@ -29,32 +56,9 @@ public class Animal {
     //     return name;
     // }
 
-    protected int getSpeed() {
-        return this.speed; 
-    }
-
-    // public boolean isFlyable() {
-    //     return flyable;
-    // }
     
-    // public static class Builder{
-    //     private String name;
-    //     private double speed;
-    //     private boolean flyable;
     
-    //     public Builder name(String name){
-    //         this.name = name;
-    //         return this;
-    //     }
-    //     public Builder speed(Double speed){
-    //         this.speed = speed;
-    //         return this;
-    //     }
-    //     public Builder flyable(boolean flyable){
-    //         this.flyable = flyable;
-    //         return this;
-        // }
-    }
+}    
     // @Override
     // public String toString() {
     //     // TODO Auto-generated method stub
